@@ -1,9 +1,9 @@
 import './app.css';
-import LoginView from './lib/components/login/login-view';
+import Login from './lib/components/login/login';
 
 function App() {
   return (
-    <LoginView/>
+    <Login/>
   );
 }
 
