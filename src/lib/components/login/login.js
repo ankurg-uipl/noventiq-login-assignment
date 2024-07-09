@@ -31,7 +31,8 @@ function Login() {
         },
         onSubmit: () => {
             console.log("Form Submitted successfully");
-            console.log('form data', data);
+            // console.log('form data', data);
+            alert(`Form Submitted successfully ${JSON.stringify(data).toString()}`);
         },
         initialValues: { email: '', password: '', language: language, remember: '' },
     });

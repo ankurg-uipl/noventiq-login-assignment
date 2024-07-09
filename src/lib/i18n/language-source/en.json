@@ -1,7 +1,7 @@
 {
     "app.empty.field": "{field} is required",
     "app.allowed.minLength": "{fieldName} needs to be at least {minLength} characters",
-    "app.invalid.field": "Invalid ${field}",
+    "app.invalid.field": "Invalid {field}",
     "app.label.email": "Email",
     "app.label.password": "Password",
     "app.label.language": "Language",
