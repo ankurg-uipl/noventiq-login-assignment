@@ -1,4 +1,8 @@
+
+export const LANGUAGE_EN = 'en';
+
 export const LANGUAGE = [
-    {code: 'en', label: 'English'},
-    {code: 'hi', label: 'Hindi'}
+    {code: LANGUAGE_EN, label: 'English'},
+    {code: 'hi', label: 'Hindi'},
+    {code: 'mr', label: 'Marathi'}
 ]

@@ -1,11 +1,12 @@
 {
     "app.empty.field": "{field} is required",
-    "app.allowed.minLength": "${fieldName} needs to be at least ${minLength} characters",
-    "app.invalid.field": "Invalid ${fieldName}",
+    "app.allowed.minLength": "{fieldName} needs to be at least {minLength} characters",
+    "app.invalid.field": "Invalid ${field}",
     "app.label.email": "Email",
     "app.label.password": "Password",
     "app.label.language": "Language",
     "app.label.remember": "Remember me",
     "app.button.login": "Log in",
-    "app.button.showPassword": "Show Password"
+    "app.text.showPassword": "Show Password",
+    "app.text.forgotPassword": "Forgot Password"
 }
