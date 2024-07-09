@@ -3,32 +3,219 @@
 exports[`it should take snap 1`] = `
 <DocumentFragment>
   <div
-    class="App"
+    class="container pt-2"
   >
-    <header
-      class="App-header"
+    <div
+      class="row"
     >
-      <img
-        alt="logo"
-        class="App-logo"
-        src="logo.svg"
-      />
-      <p>
-        Edit 
-        <code>
-          src/App.js
-        </code>
-         and save to reload.
-      </p>
-      <a
-        class="App-link"
-        href="https://reactjs.org"
-        rel="noopener noreferrer"
-        target="_blank"
+      <div
+        class="col-md-6 m-auto"
       >
-        Learn React
-      </a>
-    </header>
+        <img
+          alt="logo"
+          class="logo"
+          src="noventiq-logo.svg"
+        />
+        <form>
+          <div
+            class="formBox"
+          >
+            <div
+              class="form-group row"
+            >
+              <label
+                class="col-sm-2 col-form-label"
+                for="inputemail"
+              >
+                Email
+              </label>
+              <div
+                class="input-group col-sm-10"
+              >
+                <div
+                  class="input-group-prepend"
+                >
+                  <div
+                    class="input-group-text"
+                  >
+                    <i
+                      class="fa fa-envelope"
+                    />
+                  </div>
+                </div>
+                <input
+                  class="form-control "
+                  data-testid="inputemail"
+                  id="inputemail"
+                  name="email"
+                  placeholder="Email"
+                  type="text"
+                  value=""
+                />
+                <div
+                  class="invalid-feedback"
+                  data-testid="erroremail"
+                />
+              </div>
+            </div>
+            <div
+              class="form-group row"
+            >
+              <label
+                class="col-sm-2 col-form-label"
+                for="inputpassword"
+              >
+                Password
+              </label>
+              <div
+                class="input-group col-sm-10"
+              >
+                <div
+                  class="input-group-prepend"
+                >
+                  <div
+                    class="input-group-text"
+                  >
+                    <i
+                      class="fa fa-lock"
+                    />
+                  </div>
+                </div>
+                <input
+                  class="form-control "
+                  data-testid="inputpassword"
+                  id="inputpassword"
+                  name="password"
+                  placeholder="Password"
+                  type="password"
+                  value=""
+                />
+                <div
+                  class="input-group-append"
+                >
+                  <div
+                    class="input-group-text"
+                    data-testid="showpassword"
+                    style="background: none; cursor: pointer;"
+                    title="Show Password"
+                  >
+                    <i
+                      class="fa fa-eye"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="invalid-feedback"
+                  data-testid="errorpassword"
+                />
+                <div
+                  class="forgotPassword"
+                >
+                  <a
+                    href="!#"
+                  >
+                    Forgot Password
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="form-group row"
+            >
+              <label
+                class="col-sm-2 col-form-label"
+                for="inputlanguage"
+              >
+                Language
+              </label>
+              <div
+                class="col-sm-10"
+              >
+                <select
+                  class="form-control "
+                  data-testid="inputlanguage"
+                  id="inputlanguage"
+                  name="language"
+                >
+                  <option
+                    data-testid="select-option"
+                    value="en"
+                  >
+                    English
+                  </option>
+                  <option
+                    data-testid="select-option"
+                    value="hi"
+                  >
+                    Hindi
+                  </option>
+                  <option
+                    data-testid="select-option"
+                    value="mr"
+                  >
+                    Marathi
+                  </option>
+                </select>
+                <div
+                  class="invalid-feedback"
+                  data-testid="errorlanguage"
+                />
+              </div>
+            </div>
+            <div
+              class="form-group row"
+            >
+              <div
+                class="col-sm-2 col-form-label"
+              />
+              <div
+                class="col-sm-10"
+              >
+                <div
+                  class="custom-control custom-switch"
+                >
+                  <input
+                    class="custom-control-input"
+                    data-testid="inputremember"
+                    id="inputremember"
+                    name="remember"
+                    type="checkbox"
+                  />
+                  <label
+                    class="custom-control-label"
+                    for="inputremember"
+                  >
+                    Remember me
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="form-group row text-center pt-3"
+          >
+            <div
+              class="col-sm-12"
+            >
+              <button
+                class="btn btn-lg btn-primary loginBtn"
+                data-testid="submitBtn"
+                type="submit"
+              >
+                Log in
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div
+    class="copyright"
+  >
+    <p>
+      Copyright 2024 Noventiq | Powered by Noventiq
+    </p>
   </div>
 </DocumentFragment>
 `;
