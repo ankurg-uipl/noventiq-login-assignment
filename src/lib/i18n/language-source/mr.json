@@ -1,0 +1,11 @@
+{
+    "app.empty.field": "{field} आवश्यक आहे",
+    "app.allowed.minLength": "${fieldName} मध्ये किमान ${minLength} वर्ण असणे आवश्यक आहे",
+    "app.invalid.field": "अवैध ${fieldName}",
+    "app.label.email": "ईमेल",
+    "app.label.password": "पासवर्ड",
+    "app.label.language": "भाषा",
+    "app.label.remember": "मला लक्षात ठेवा",
+    "app.button.login": "लॉग इन करा",
+    "app.button.showPassword": "पासवर्ड दाखवा"
+}
