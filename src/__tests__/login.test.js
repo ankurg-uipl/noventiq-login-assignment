@@ -1,86 +1,187 @@
 import React from "react";
-import { cleanup, fireEvent, render } from "@testing-library/react";
-import Login from "../lib/components/login/login"
+import { cleanup, fireEvent, render } from "@testing-library/react"
+import Login from "../lib/components/login/login";
+
 
 afterEach(cleanup);
 
 describe("Test Email Fields", () => {
     test('Email Input should exist', () => {
-        const {getByTestId} = render(<Login />);
+        const { getByTestId } = render(<Login />);
         const element = getByTestId('inputemail');
         expect(element).toBeInTheDocument();
     })
-    
-    test('Lable Email should exist', () => {
-        const {getByLabelText} = render(<Login />);
+
+    test('Label Email should exist', () => {
+        const { getByLabelText } = render(<Login />);
         expect(getByLabelText('Email')).toBeInTheDocument();
     })
-    
+
     test('Email Input value should change', () => {
-        const {getByTestId} = render(<Login />);
+        const { getByTestId } = render(<Login />);
         const element = getByTestId('inputemail');
-        fireEvent.change(element, {target: {value: 'dummy@gmail.com'}});
+        fireEvent.change(element, { target: { value: 'dummy@gmail.com' } });
         expect(element.value).toBe('dummy@gmail.com');
     })
 
-   
-    test('Should show Required Message', async () => {
-        const {getByTestId} = render(<Login />);
+
+    test('Should show Required Message', () => {
+        const { getByTestId } = render(<Login />);
         const element = getByTestId('inputemail');
         fireEvent.blur(element);
         expect(getByTestId("erroremail")).toHaveTextContent("Email Address is required");
     })
-    
-    test('Should show invalid Email', async () => {
-        const {getByTestId} = render(<Login />);
+
+    test('Should show invalid Email', () => {
+        const { getByTestId } = render(<Login />);
         const element = getByTestId('inputemail');
-        fireEvent.change(element, {target: {value: 'dummy@gmail.com'}});
+        fireEvent.change(element, { target: { value: 'dummy@gmail.com' } });
         fireEvent.blur(element);
         expect(getByTestId("erroremail")).toHaveTextContent("Invalid Email Address");
     })
-    
-    test('Should not show invalid Email', async () => {
-        const {getByTestId} = render(<Login />);
+
+    test('Should not show invalid Email', () => {
+        const { getByTestId } = render(<Login />);
         const element = getByTestId('inputemail');
-        fireEvent.change(element, {target: {value: 'a@brownsugar.com'}});
+        fireEvent.change(element, { target: { value: 'a@brownsugar.com' } });
         fireEvent.blur(element);
         expect(getByTestId("erroremail")).toHaveTextContent("");
     })
 })
 
-describe("Test Password Field", ()=> {
+describe("Test Password Field", () => {
     test('Password Input should exist', () => {
-        const {getByTestId} = render(<Login />);
+        const { getByTestId } = render(<Login />);
         const element = getByTestId('inputpassword');
         expect(element).toBeInTheDocument();
     })
-    
-    test('Lable Password should exist', () => {
-        const {getByLabelText} = render(<Login />);
+
+    test('Label Password should exist', () => {
+        const { getByLabelText } = render(<Login />);
         expect(getByLabelText('Password')).toBeInTheDocument();
     })
-    
+
     test('Password Input value should change', () => {
-        const {getByTestId} = render(<Login />);
+        const { getByTestId } = render(<Login />);
         const element = getByTestId('inputpassword');
-        fireEvent.change(element, {target: {value: '12345'}});
+        fireEvent.change(element, { target: { value: '12345' } });
         expect(element.value).toBe('12345');
     })
-   
-    test('Should show Required Message', async () => {
-        const {getByTestId} = render(<Login />);
+
+    test('Should show Required Message', () => {
+        const { getByTestId } = render(<Login />);
         const element = getByTestId('inputpassword');
         fireEvent.blur(element);
         expect(getByTestId("errorpassword")).toHaveTextContent("Password is required");
     })
 
-   
-    test('Should show Temporary Password', async () => {
-        const {getByTestId} = render(<Login />);
+
+    test('Should show Temporary Password', () => {
+        const { getByTestId } = render(<Login />);
         const element = getByTestId('inputpassword');
         const btn = getByTestId('showpassword');
         fireEvent.click(btn);
         expect(element.type).toBe("text");
     })
-    
+
+})
+
+
+describe("Test Language Field", () => {
+    test('Language Selection should exist', () => {
+        const { getByTestId } = render(<Login />);
+        const element = getByTestId('inputlanguage');
+        expect(element).toBeInTheDocument();
+    })
+
+    test('Label Language should exist', () => {
+        const { getByLabelText } = render(<Login />);
+        expect(getByLabelText('Language')).toBeInTheDocument();
+    })
+
+    test('Should have 2 Options', () => {
+        const { getAllByTestId } = render(<Login />);
+        const options = getAllByTestId('select-option');
+        expect(options).toHaveLength(2);
+    })
+
+    test('Should Match Default Language', () => {
+        const { getByTestId } = render(<Login />);
+        const element = getByTestId('inputlanguage');
+        expect(element.value).toBe('en');
+    })
+
+    test('Should Change to Hindi Option', () => {
+        const { getByTestId, getAllByTestId } = render(<Login />);
+        const element = getByTestId('inputlanguage');
+        const options = getAllByTestId('select-option');
+        fireEvent.change(element, { target: { value: 'hi' } });
+        expect(element.value).toBe('hi');
+        expect(options[0].selected).toBeFalsy();
+        expect(options[1].selected).toBeTruthy();
+    })
+
+})
+
+describe("Test Remember me Field", () => {
+    test('Remember Switch should exist', () => {
+        const { getByTestId } = render(<Login />);
+        const element = getByTestId('inputremember');
+        expect(element).toBeInTheDocument();
+    })
+
+    test('Label Remember me should exist', () => {
+        const { getByLabelText } = render(<Login />);
+        expect(getByLabelText('Remember me')).toBeInTheDocument();
+    })
+
+    test('Default value should be empty or falsy ', () => {
+        const { getByTestId } = render(<Login />);
+        const element = getByTestId('inputremember');
+        expect(element.checked).toBeFalsy();
+    })
+
+    test('Should change the value on checkbok click ', () => {
+        const { getByTestId } = render(<Login />);
+        const element = getByTestId('inputremember');
+        fireEvent.click(element)
+        expect(element.checked).toBeTruthy();
+    })
+
+    test('Should change the value on label click', () => {
+        const { getByTestId, getByLabelText } = render(<Login />);
+        const element = getByTestId('inputremember');
+        fireEvent.click(getByLabelText('Remember me'))
+        expect(element.checked).toBeTruthy();
+    })
+
+})
+
+describe("Test Submit Button", () => {
+    test("Submit Button Should Exist", () => {
+        const { getByTestId } = render(<Login />);
+        expect(getByTestId('submitBtn')).toBeInTheDocument();
+    })
+
+    test("Should show errors on input fields when submit form ", () => {
+        const { getByTestId } = render(<Login />);
+        const btn = getByTestId('submitBtn');
+        fireEvent.click(btn);
+        expect(getByTestId('erroremail')).toHaveTextContent('Email Address is required');
+        expect(getByTestId('errorpassword')).toHaveTextContent('Password is required');
+    })
+
+    test("Should show success message when submit form", () => {
+        const logSpy = jest.spyOn(console, 'log');
+        const { getByTestId } = render(<Login />);
+        const password = getByTestId('inputpassword');
+        fireEvent.change(password, { target: { value: '12345' } });
+        const email = getByTestId('inputemail');
+        fireEvent.change(email, { target: { value: 'a@brownsugar.com' } });
+        const btn = getByTestId('submitBtn');
+        fireEvent.click(btn);
+        expect(getByTestId('erroremail')).toHaveTextContent('');
+        expect(getByTestId('errorpassword')).toHaveTextContent('');
+        expect(logSpy).toHaveBeenCalledWith("Form Submitted successfully");
+    })
 })
