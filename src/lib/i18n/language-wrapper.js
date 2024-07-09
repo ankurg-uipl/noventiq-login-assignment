@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import LanguageContext from './language-context';
-import { LANGUAGE_EN } from '../constant/common-constant';
+import { LANGUAGE, LANGUAGE_EN } from '../constant/common-constant';
 import { IntlProvider } from 'react-intl';
 import messages_en from './language-source/en.json';
 import messages_hi from './language-source/hi.json';
@@ -12,7 +12,15 @@ LanguageWrapper.propTypes = {
 };
 
 function LanguageWrapper({ children }) {
-    const defaultLangue = useMemo(() => (navigator?.language || navigator?.userLanguage)?.substr(0, 2) || LANGUAGE_EN, []);
+    const defaultLangue = useMemo(() => {
+        const lang = (navigator?.language || navigator?.userLanguage)?.substr(0, 2) || LANGUAGE_EN;
+        const supportLang = LANGUAGE.find(x => x.code === lang);
+        if(!supportLang){
+            alert(`Language ${lang} is not supported. Proceeding in English`);
+            return LANGUAGE_EN;
+        }
+        return lang;
+    }, []);
 
     const [language, setLanguage] = useState(defaultLangue);
 
