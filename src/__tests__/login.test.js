@@ -129,6 +129,17 @@ describe("Test Language Field", () => {
         expect(options[1].selected).toBeTruthy();
     })
 
+
+
+    test('Should Change to all text to respective language', () => {
+        const { getByTestId, getByLabelText } = renderWithReactIntl(<Login />);
+        const element = getByTestId('inputlanguage');
+        fireEvent.change(element, { target: { value: 'hi' } });
+        expect(element.value).toBe('hi');
+        expect(getByLabelText('ईमेल')).toBeInTheDocument();
+        expect(() => getByLabelText('Email')).toThrow();
+        expect(getByTestId('submitBtn')).toHaveTextContent("लॉग इन करें");
+    })
 })
 
 describe("Test Remember me Field", () => {
