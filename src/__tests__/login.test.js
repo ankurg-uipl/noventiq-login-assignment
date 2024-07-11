@@ -192,6 +192,7 @@ describe("Test Submit Button", () => {
 
     test("Should show success message when submit form", () => {
         const logSpy = jest.spyOn(console, 'log');
+        global.alert = jest.fn();
         const { getByTestId } = renderWithReactIntl(<Login />);
         const password = getByTestId('inputpassword');
         fireEvent.change(password, { target: { value: '12345' } });
@@ -202,5 +203,6 @@ describe("Test Submit Button", () => {
         expect(getByTestId('erroremail')).toHaveTextContent('');
         expect(getByTestId('errorpassword')).toHaveTextContent('');
         expect(logSpy).toHaveBeenCalledWith("Form Submitted successfully");
+        expect(global.alert).toHaveBeenCalled();
     })
 })
