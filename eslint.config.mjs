@@ -7,7 +7,7 @@ import unusedImports from "eslint-plugin-unused-imports";
 import globals from "globals";
 
 // https://github.com/promptfoo/promptfoo/blob/main/eslint.config.mjs
-// https://github.com/nodejs/node/blob/main/eslint.config.mjs
+// all working example: https://github.com/nodejs/node/blob/main/eslint.config.mjs
 
 export default [
   { files: ["**/*.{js,mjs,cjs,jsx}"] },
@@ -30,28 +30,32 @@ export default [
     },
     rules: {
       ...pluginReactHooks.configs.recommended.rules,
+      // ESLint built-in rules
+      'dot-notation': 'error',
+      'eqeqeq': ['error', 'smart'],
+      'no-lonely-if': 'error',
       "no-unused-vars": "off",
       "spaced-comment": ["error", "always", {
-    "block": {
-        "balanced": true,
-        "exceptions": ["*"],
-        "markers": ["!"]
-    },
-    "line": {
-        "exceptions": ["-", "+"],
-        "markers": ["/"]
-    }
-}],
-        "unused-imports/no-unused-imports": "error",
-        "unused-imports/no-unused-vars": [
-            "warn",
-            {
-                "args": "after-used",
-                "argsIgnorePattern": "^_",
-                "vars": "all",
-                "varsIgnorePattern": "^_",
-            },
-        ]
+        "block": {
+          "balanced": true,
+          "exceptions": ["*"],
+          "markers": ["!"]
+        },
+        "line": {
+          "exceptions": ["-", "+"],
+          "markers": ["/"]
+        }
+      }],
+      "unused-imports/no-unused-imports": "error",
+      "unused-imports/no-unused-vars": [
+        "warn",
+        {
+          "args": "after-used",
+          "argsIgnorePattern": "^_",
+          "vars": "all",
+          "varsIgnorePattern": "^_",
+        },
+      ]
     },
   }
 ];
