@@ -1,38 +1,38 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 SelectBox.propTypes = {
-    handleChange: PropTypes.func.isRequired,
-    handleBlur: PropTypes.func.isRequired,
-    inputName: PropTypes.string.isRequired,
     error: PropTypes.string,
+    handleBlur: PropTypes.func.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    inputName: PropTypes.string.isRequired,
     label: PropTypes.string,
     optionConfig: PropTypes.shape({
-        isArrayOfObject: PropTypes.bool.isRequired,
+        defaultOptionLabel: PropTypes.string.isRequired,
         dropDownOptions: PropTypes.array.isRequired,
+        isArrayOfObject: PropTypes.bool.isRequired,
         labelKey: PropTypes.string,
-        vauleKey: PropTypes.string,
-        defaultOptionLabel: PropTypes.string.isRequired
+        valueKey: PropTypes.string
     }).isRequired,
     selectValue: PropTypes.string
 };
 
-function SelectBox({ handleChange, handleBlur, inputName, error, label, optionConfig, selectValue }) {
+function SelectBox({ error, handleBlur, handleChange, inputName, label, optionConfig, selectValue }) {
     return (
         <div className="form-group row">
-            <label htmlFor={`input${inputName}`} className="col-sm-2 col-form-label">{label}</label>
+            <label className="col-sm-2 col-form-label" htmlFor={`input${inputName}`}>{label}</label>
             <div className="col-sm-10">
-                <select name={inputName}
-                    onBlur={handleBlur}
-                    value={selectValue}
-                    className={`form-control ${error ? 'is-invalid' : ''}`}
+                <select className={`form-control ${error ? 'is-invalid' : ''}`}
                     data-testid={`input${inputName}`}
-                    onChange={handleChange(inputName)} id={`input${inputName}`}>
+                    id={`input${inputName}`}
+                    name={inputName}
+                    onBlur={handleBlur}
+                    onChange={handleChange(inputName)} value={selectValue}>
                     {/* <option data-testid="select-option" value={""}>{optionConfig.defaultOptionLabel}</option> */}
                     {
                         optionConfig?.dropDownOptions?.map((item, key) => {
                             const optionValue = optionConfig?.isArrayOfObject ? item[optionConfig?.valueKey] : item;
-                            return <option key={key} data-testid="select-option" value={optionValue}>{optionConfig?.isArrayOfObject ? item[optionConfig?.labelKey] : item}</option>
+                            return <option data-testid="select-option" key={key} value={optionValue}>{optionConfig?.isArrayOfObject ? item[optionConfig?.labelKey] : item}</option>
                         })
                     }
                 </select>

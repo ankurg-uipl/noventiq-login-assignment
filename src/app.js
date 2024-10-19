@@ -1,3 +1,5 @@
+import React from 'react';
+
 import './app.css';
 import Login from './lib/components/login/login';
 import LanguageWrapper from './lib/i18n/language-wrapper';

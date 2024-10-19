@@ -69,10 +69,10 @@ export function useFormHook(options){
 
     return {
         data,
-        handleChange,
-        handleBlur,
-        handleSubmit,
         errors,
+        handleBlur,
+        handleChange,
+        handleSubmit,
         resetForm
     };
 };

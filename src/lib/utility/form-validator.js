@@ -20,22 +20,24 @@ const FormValidator = {
     requiredWithRegex: function (intl, fieldName, fieldValue = '', minLength = 0, regex = '') {
         fieldValue = fieldValue ? fieldValue.toString().toLowerCase(): '';
         if (fieldValue.trim() === "") {
-            return intl && intl.hasOwnProperty('formatMessage') ?  intl.formatMessage(
-                {id: 'app.empty.field', defaultMessage: '{field} is required'},
+            return intl?.formatMessage ?  intl.formatMessage(
+                {defaultMessage: '{field} is required', id: 'app.empty.field'},
                 {field: fieldName}
             ) : `${fieldName} is required`;
         }
         if (minLength > 0 && fieldValue.trim().length < minLength) {
-            return intl && intl.hasOwnProperty('formatMessage') ? intl.formatMessage(
-                {id: 'app.allowed.minLength', defaultMessage: '{field} needs to be at least {minLength} characters'},
+            return intl?.formatMessage ? intl.formatMessage(
+                {defaultMessage: '{field} needs to be at least {minLength} characters', id: 'app.allowed.minLength'},
                 {field: fieldName, minLength: minLength}
             ) : `${fieldName} needs to be at least ${minLength} characters`;
         }
         if (regex && !regex.test(fieldValue)) {
-            return intl && intl.hasOwnProperty('formatMessage') ? intl.formatMessage(
-                {id: 'app.invalid.field', defaultMessage: 'Invalid {field}'},
-                {field: fieldName}
-            ) : `Invalid ${fieldName}`;
+            return intl?.formatMessage 
+            ? intl.formatMessage(
+                { defaultMessage: 'Invalid {field}', id: 'app.invalid.field' },
+                { field: fieldName }
+              )
+            : `Invalid ${fieldName}`;        
         }
         return null;
     }

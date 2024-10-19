@@ -1,9 +1,10 @@
-import React, { useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
-import LanguageContext from './language-context';
-import { LANGUAGE, LANGUAGE_EN } from '../constant/common-constant';
+import React, { useMemo, useState } from 'react';
 import { IntlProvider } from 'react-intl';
-import messages_en from './language-source/en.json';
+
+import { LANGUAGE, LANGUAGE_EN } from '../constant/common-constant';
+import LanguageContext from './language-context';
+import messages_en from "./language-source/en.json";
 import messages_hi from './language-source/hi.json';
 import messages_mr from './language-source/mr.json';
 
