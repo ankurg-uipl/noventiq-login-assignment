@@ -15,15 +15,15 @@ import SelectBox from '../../utility/templates/form-elements/select-box';
 
 function Login() {
     const intl = useIntl();
-    // receiving and updating language from context
+    // Receiving and updating language from context
     const { language, setLanguage } = useContext(LanguageContext);
 
     const {
-        data, // access to the form data
-        errors, // includes the errors to show
+        data, // Access to the form data
+        errors, // Includes the errors to show
         handleBlur, // handles input blur
-        handleChange, // handles input changes
-        handleSubmit, // handles form submission
+        handleChange, // Handles input changes
+        handleSubmit, // Handles form submission
         // resetForm
     } = useFormHook({
         initialValues: { email: '', language: language, password: '', remember: '' },

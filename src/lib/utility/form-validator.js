@@ -1,23 +1,22 @@
 import {EMAIL_REGEX} from "../constant/form-constants";
 
 const FormValidator = {
-    email: function (str) {
-        let string = str.toString();
+    email: (str) => {
+        const string = str.toString();
         if (string.length === 0) {
             return false;
         }
         return EMAIL_REGEX.test(string);
 
     },
-    password: function (str) {
-        let string = str.toString();
+    password: (str) => {
+        const string = str.toString();
         if (string.length === 0) {
             return false;
         }
         return string.replace(/\s/g, '').length;
-
     },
-    requiredWithRegex: function (intl, fieldName, fieldValue = '', minLength = 0, regex = '') {
+    requiredWithRegex: (intl, fieldName, fieldValue = '', minLength = 0, regex = '') => {
         fieldValue = fieldValue ? fieldValue.toString().toLowerCase(): '';
         if (fieldValue.trim() === "") {
             return intl?.formatMessage ?  intl.formatMessage(

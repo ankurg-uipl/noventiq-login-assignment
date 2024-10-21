@@ -1,9 +1,16 @@
-import React from "react";
 import { cleanup, fireEvent, render } from "@testing-library/react"
+import React from "react";
+
 import Login from "../lib/components/login/login";
 import LanguageWrapper from "../lib/i18n/language-wrapper";
 
-
+/* global
+afterEach
+describe
+test
+expect
+global
+jest */
 afterEach(cleanup);
 
 const renderWithReactIntl = (component) => {
@@ -120,7 +127,7 @@ describe("Test Language Field", () => {
     })
 
     test('Should Change to Hindi Option', () => {
-        const { getByTestId, getAllByTestId } = renderWithReactIntl(<Login />);
+        const { getAllByTestId, getByTestId } = renderWithReactIntl(<Login />);
         const element = getByTestId('inputlanguage');
         const options = getAllByTestId('select-option');
         fireEvent.change(element, { target: { value: 'hi' } });
@@ -132,7 +139,7 @@ describe("Test Language Field", () => {
 
 
     test('Should Change to all text to respective language', () => {
-        const { getByTestId, getByLabelText } = renderWithReactIntl(<Login />);
+        const { getByLabelText, getByTestId } = renderWithReactIntl(<Login />);
         const element = getByTestId('inputlanguage');
         fireEvent.change(element, { target: { value: 'hi' } });
         expect(element.value).toBe('hi');
@@ -168,7 +175,7 @@ describe("Test Remember me Field", () => {
     })
 
     test('Should change the value on label click', () => {
-        const { getByTestId, getByLabelText } = renderWithReactIntl(<Login />);
+        const { getByLabelText, getByTestId } = renderWithReactIntl(<Login />);
         const element = getByTestId('inputremember');
         fireEvent.click(getByLabelText('Remember me'))
         expect(element.checked).toBeTruthy();
