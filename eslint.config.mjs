@@ -7,7 +7,8 @@ import unusedImports from "eslint-plugin-unused-imports";
 import globals from "globals";
 
 // https://github.com/promptfoo/promptfoo/blob/main/eslint.config.mjs
-// all working example: https://github.com/nodejs/node/blob/main/eslint.config.mjs
+// all working example: 
+// https://github.com/nodejs/node/blob/main/eslint.config.mjs
 
 export default [
   { files: ["**/*.{js,mjs,cjs,jsx}"] },
@@ -31,10 +32,39 @@ export default [
     rules: {
       ...pluginReactHooks.configs.recommended.rules,
       // ESLint built-in rules
+      'array-callback-return': 'error',
+      'capitalized-comments': ['error', 'always', {
+        block: {
+          ignorePattern: '.*',
+        },
+        line: {
+          // Ignore all lines that have less characters than 20 and all lines
+          ignoreConsecutiveComments: true,
+          // That start with something that looks like a variable name or code.
+          ignoreInlineComments: true,
+          ignorePattern: '.{0,20}$|[a-z]+ ?[0-9A-Z_.(/=:[#-]|std|http|ssh|ftp|const|let',
+        },
+      }],
       'dot-notation': 'error',
       'eqeqeq': ['error', 'smart'],
       'no-lonely-if': 'error',
+      'no-proto': 'error',
+      "no-restricted-syntax": [
+            "error",
+            {
+                "message": "Function expressions are not allowed.",
+                "selector": "FunctionExpression"
+            },
+            {
+                "message": "setTimeout must always be invoked with two arguments.",
+                "selector": "CallExpression[callee.name='setTimeout'][arguments.length!=2]"
+            }
+        ],
+        'no-self-compare': 'error',
+        'no-template-curly-in-string': 'error',
+        'no-undef-init': 'error', 
       "no-unused-vars": "off",
+      'prefer-const': ['error', { ignoreReadBeforeAssign: true }],
       "spaced-comment": ["error", "always", {
         "block": {
           "balanced": true,
