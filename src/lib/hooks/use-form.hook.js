@@ -11,8 +11,8 @@ export function useFormHook(options){
     /**
      * wrapping reset form function into useCallback hook to avoid recreation of it
      */
-    const resetForm = useCallback(()=>{
-        setData(d=> {
+    const resetForm = useCallback(() => {
+        setData(d => {
             console.log('d', d)
             for (const argumentsKey in d) {
                 d[argumentsKey] = '';

@@ -15,7 +15,7 @@ LanguageWrapper.propTypes = {
 function LanguageWrapper({ children }) {
     const defaultLangue = useMemo(() => {
         const lang = (navigator?.language || navigator?.userLanguage)?.substr(0, 2) || LANGUAGE_EN;
-        const supportLang = LANGUAGE.find(x => x.code === lang);
+        const supportLang = LANGUAGE.find((x) => x.code === lang);
         if (!supportLang) {
             alert(`Language ${lang} is not supported. Proceeding in English`);
             return LANGUAGE_EN;
@@ -62,10 +62,24 @@ function LanguageWrapper({ children }) {
 
     // const a = function () {alert(23);}
     // a();
-    //     var x = 10;
+    var x = 10;
+    console.log(x);
     // if (x === x) {
     //     x = 20;
     // }
+    // x || language;
+    const sub = { a: 10 };
+    console.log(typeof sub === "function");
+    function xc() {
+
+    }
+    if (sub) {
+        const b=10;
+        xc();
+        console.log(b);
+        const a = b => b*10;
+        console.log(a(2));
+    }
     return (
         <IntlProvider locale={language} messages={loadMessage}>
             <LanguageContext.Provider value={{ language: language, setLanguage: setLanguage }}>
