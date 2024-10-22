@@ -1,3 +1,4 @@
+/* eslint-disable perfectionist/sort-objects */
 import pluginJs from '@eslint/js';
 import stylisticJs from '@stylistic/eslint-plugin-js';
 import pluginImort from "eslint-plugin-perfectionist";
@@ -50,21 +51,32 @@ export default [
       'no-lonely-if': 'error',
       'no-proto': 'error',
       "no-restricted-syntax": [
-            "error",
-            {
-                "message": "Function expressions are not allowed.",
-                "selector": "FunctionExpression"
-            },
-            {
-                "message": "setTimeout must always be invoked with two arguments.",
-                "selector": "CallExpression[callee.name='setTimeout'][arguments.length!=2]"
-            }
-        ],
-        'no-self-compare': 'error',
-        'no-template-curly-in-string': 'error',
-        'no-undef-init': 'error', 
+        "error",
+        {
+          "message": "Function expressions are not allowed.",
+          "selector": "FunctionExpression"
+        },
+        {
+          "message": "setTimeout must always be invoked with two arguments.",
+          "selector": "CallExpression[callee.name='setTimeout'][arguments.length!=2]"
+        }
+      ],
+      'no-self-compare': 'error',
+      'no-template-curly-in-string': 'error',
+      'no-undef-init': 'error',
+      'no-unused-expressions': ['error', { allowShortCircuit: true }],
       "no-unused-vars": "off",
+      'no-use-before-define': ['error', {
+        classes: true,
+        functions: false,
+        variables: false,
+      }],
+      'no-useless-concat': 'error',
+      'no-useless-return': 'error',
       'prefer-const': ['error', { ignoreReadBeforeAssign: true }],
+      // ESLint recommended rules that we disable.
+      // eslint-disable-next-line perfectionist/sort-objects
+      // 'no-inner-declarations': ['error'],
       "spaced-comment": ["error", "always", {
         "block": {
           "balanced": true,
@@ -85,7 +97,10 @@ export default [
           "vars": "all",
           "varsIgnorePattern": "^_",
         },
-      ]
+      ],
+      // Stylistic rules.
+      // '@stylistic/js/arrow-parens': ["error", "as-needed", { "requireForBlockBody": true }],
+      '@stylistic/js/arrow-spacing': 'error',
     },
   }
 ];
