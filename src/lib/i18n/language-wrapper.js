@@ -63,12 +63,16 @@ function LanguageWrapper({ children }) {
     // const a = function () {alert(23);}
     // a();
     var x = 10;
+    const newArr = [2, 3]
     console.log(x);
     // if (x === x) {
     //     x = 20;
     // }
     // x || language;
-    const sub = { a: 10, c: [12, 13], d: [10] };
+    const sub = { a: 10, c: [12, 13], d: [10, ...newArr] };
+    const [_a, _b, ..._arr] = [1, 2, 3, 4, 5];
+    delete (sub.a);
+    console.log(typeof (sub) === "object");
     console.log(typeof sub === 'function');
     function xc() {
 

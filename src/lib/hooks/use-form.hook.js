@@ -4,7 +4,7 @@ import { useCallback, useState } from "react";
  * @param options
  * @returns {{handleBlur: handleBlur, handleSubmit: handleSubmit, data: ({password: string, email: string}|{}), handleChange: (function(*, *): function(*): void), errors: {}}}
  */
-export function useFormHook(options){
+export function useFormHook(options) {
     const [data, setData] = useState((options?.initialValues || {}));
     const [errors, setErrors] = useState({});
 

@@ -98,6 +98,7 @@ export default [
                     "varsIgnorePattern": "^_"
                 }
             ],
+
             // Stylistic rules.
             // '@stylistic/js/arrow-parens': ["error", "as-needed", { "requireForBlockBody": true }],
             '@stylistic/js/arrow-spacing': 'error',
@@ -115,8 +116,19 @@ export default [
             '@stylistic/js/no-whitespace-before-property': 'error',
             '@stylistic/js/object-curly-spacing': ['error', 'always'],
             '@stylistic/js/one-var-declaration-per-line': ['error', 'always'],
-            '@stylistic/js/operator-linebreak': ['error', 'after']
-            // '@stylistic/js/quotes': ['error', 'single', { avoidEscape: true }]
+            '@stylistic/js/operator-linebreak': ['error', 'after'],
+            // '@stylistic/js/quotes': ['error', 'double', { ignoreStringLiterals: true }]
+            '@stylistic/js/rest-spread-spacing': 'error',
+            '@stylistic/js/semi-spacing': 'error',
+            '@stylistic/js/space-before-blocks': ['error', 'always'],
+            '@stylistic/js/space-before-function-paren': ['error', {
+                anonymous: 'never',
+                named: 'never',
+                asyncArrow: 'always'
+            }],
+            '@stylistic/js/space-in-parens': ['error', 'never'],
+            '@stylistic/js/space-unary-ops': 'error',
+            '@stylistic/js/template-curly-spacing': 'error'
         }
     }
 ];
