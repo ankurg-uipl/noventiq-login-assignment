@@ -23,7 +23,7 @@ function InputText({ error, handleBlur, handleChange, inputName, inputValue, lab
                     onBlur={handleBlur}
                     onChange={handleChange(inputName)}
                     placeholder={label}
-                    type={"text"} value={inputValue} />
+                    type="text" value={inputValue} />
                 <div className="invalid-feedback" data-testid={`error${inputName}`}>
                     {error}
                 </div>

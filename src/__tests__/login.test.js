@@ -15,10 +15,10 @@ afterEach(cleanup);
 
 const renderWithReactIntl = (component) => {
     return render(<LanguageWrapper>
-                   {component}
-                  </LanguageWrapper>
+        {component}
+    </LanguageWrapper>
     );
-  };
+};
 
 describe("Test Email Fields", () => {
     test('Email Input should exist', () => {
@@ -135,7 +135,6 @@ describe("Test Language Field", () => {
         expect(options[0].selected).toBeFalsy();
         expect(options[1].selected).toBeTruthy();
     })
-
 
 
     test('Should Change to all text to respective language', () => {

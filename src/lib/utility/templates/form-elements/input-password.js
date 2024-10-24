@@ -12,7 +12,7 @@ InputPassword.propTypes = {
     showPasswordTitle: PropTypes.string
 };
 
-function InputPassword({ error, forgotPassword, handleBlur, handleChange, inputName, inputValue, label, showPasswordTitle}) {
+function InputPassword({ error, forgotPassword, handleBlur, handleChange, inputName, inputValue, label, showPasswordTitle }) {
     const [inputType, setInputType] = useState('password');
 
     const handleVisibility = () => {
@@ -36,7 +36,7 @@ function InputPassword({ error, forgotPassword, handleBlur, handleChange, inputN
                     type={inputType}
                     value={inputValue} />
                 <div className="input-group-append">
-                    <div className="input-group-text" data-testid={"showpassword"} onClick={handleVisibility} style={{ background: "none", cursor: "pointer" }} title={showPasswordTitle}><i className="fa fa-eye"></i></div>
+                    <div className="input-group-text" data-testid={'showpassword'} onClick={handleVisibility} style={{ background: 'none', cursor: 'pointer' }} title={showPasswordTitle}><i className="fa fa-eye"></i></div>
                 </div>
                 <div className="invalid-feedback" data-testid={`error${inputName}`}>
                     {error}

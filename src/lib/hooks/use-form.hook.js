@@ -1,4 +1,4 @@
-import {useCallback, useState} from "react";
+import { useCallback, useState } from "react";
 
 /**
  * @param options
@@ -17,18 +17,18 @@ export function useFormHook(options){
             for (const argumentsKey in d) {
                 d[argumentsKey] = '';
             }
-            return {...d};
+            return { ...d };
         });
     }, [])
 
     const handleChange = (key, sanitizeFn) => (
-        e,
+        e
     ) => {
         const targetValue = (e.target.type === "checkbox") ? e.target.checked : e.target.value;
         const value = sanitizeFn ? sanitizeFn(targetValue) : targetValue;
         setData({
             ...data,
-            [key ? key : e.target.name]: value,
+            [key ? key : e.target.name]: value
         });
     };
 
@@ -37,7 +37,7 @@ export function useFormHook(options){
         const error = options.validations[e.target.name] ? options.validations[e.target.name](targetValue) : '';
         setErrors({
             ...errors,
-            [e.target.name]: error,
+            [e.target.name]: error
         });
     };
 

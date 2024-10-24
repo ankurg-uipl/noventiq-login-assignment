@@ -23,7 +23,7 @@ function Login() {
         errors, // Includes the errors to show
         handleBlur, // handles input blur
         handleChange, // Handles input changes
-        handleSubmit, // Handles form submission
+        handleSubmit // Handles form submission
         // resetForm
     } = useFormHook({
         initialValues: { email: '', language: language, password: '', remember: '' },

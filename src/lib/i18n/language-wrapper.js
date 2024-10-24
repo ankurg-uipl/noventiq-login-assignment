@@ -4,7 +4,7 @@ import { IntlProvider } from 'react-intl';
 
 import { LANGUAGE, LANGUAGE_EN } from '../constant/common-constant';
 import LanguageContext from './language-context';
-import messages_en from "./language-source/en.json";
+import messages_en from './language-source/en.json';
 import messages_hi from './language-source/hi.json';
 import messages_mr from './language-source/mr.json';
 
@@ -68,17 +68,20 @@ function LanguageWrapper({ children }) {
     //     x = 20;
     // }
     // x || language;
-    const sub = { a: 10 };
-    console.log(typeof sub === "function");
+    const sub = { a: 10, c: [12, 13], d: [10] };
+    console.log(typeof sub === 'function');
     function xc() {
 
     }
     if (sub) {
-        const b=10;
+        const b = 10 + 10;
         xc();
         console.log(b);
-        const a = b => b*10;
+        const a = b => b * 10;
         console.log(a(2));
+        console.log(sub?.a)
+    } else {
+        console.log('emplty')
     }
     return (
         <IntlProvider locale={language} messages={loadMessage}>

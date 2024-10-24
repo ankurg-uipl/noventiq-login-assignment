@@ -9,7 +9,7 @@ Checkbox.propTypes = {
     label: PropTypes.string.isRequired
 };
 
-function Checkbox({ handleBlur, handleChange, inputName, ischecked, label}) {
+function Checkbox({ handleBlur, handleChange, inputName, ischecked, label }) {
     return (
         <div className="form-group row">
             <div className="col-sm-2 col-form-label"></div>
