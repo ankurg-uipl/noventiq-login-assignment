@@ -19,13 +19,13 @@ jobs:
     steps:
       - name: Checkout selected branch
         uses: actions/checkout@v3
-        with:
-          ref: ${{ inputs.branch }}
+        # with:
+        #   ref: ${{ inputs.branch }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "22"
+          node-version: "22.12"
 
       - name: Install Dependencies
         run: |

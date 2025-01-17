@@ -33,19 +33,19 @@ function LanguageWrapper({ children }) {
             mr: messages_mr
         };
 
-        const myArray = ['a', 'b', 'c'];
-        const map = myArray.reduce((memo, item, index) => {
-            memo[item] = index;
-            return memo;
-        }, {})
+        // const myArray = ['a', 'b', 'c'];
+        // const map = myArray.reduce((memo, item, index) => {
+        //     memo[item] = index;
+        //     return memo;
+        // }, {})
 
         // const x = new Object({});
         // console.log(Object.getPrototypeOf(x));
 
-        var a = 10;
+        // var a = 10;
         // var a = 13;
-        console.log(map);
-        console.log(`Hello ${a}!`);
+        // console.log(map);
+        // console.log(`Hello ${a}!`);
 
         // setTimeout(() => {alert(10)}, 10);
         // var x = undefined;
@@ -62,31 +62,31 @@ function LanguageWrapper({ children }) {
 
     // const a = function () {alert(23);}
     // a();
-    var x = 10;
-    const newArr = [2, 3]
-    console.log(x);
+    // var x = 10;
+    // const newArr = [2, 3]
+    // console.log(x);
     // if (x === x) {
     //     x = 20;
     // }
     // x || language;
-    const sub = { a: 10, c: [12, 13], d: [10, ...newArr] };
-    const [_a, _b, ..._arr] = [1, 2, 3, 4, 5];
-    delete (sub.a);
-    console.log(typeof (sub) === "object");
-    console.log(typeof sub === 'function');
-    function xc() {
+    // const sub = { a: 10, c: [12, 13], d: [10, ...newArr] };
+    // const [_a, _b, ..._arr] = [1, 2, 3, 4, 5];
+    // delete (sub.a);
+    // console.log(typeof (sub) === "object");
+    // console.log(typeof sub === 'function');
+    // function xc() {
 
-    }
-    if (sub) {
-        const b = 10 + 10;
-        xc();
-        console.log(b);
-        const a = b => b * 10;
-        console.log(a(2));
-        console.log(sub?.a)
-    } else {
-        console.log('emplty')
-    }
+    // }
+    // if (sub) {
+    //     const b = 10 + 10;
+    //     xc();
+    //     console.log(b);
+    //     const a = b => b * 10;
+    //     console.log(a(2));
+    //     console.log(sub?.a)
+    // } else {
+    //     console.log('emplty')
+    // }
     return (
         <IntlProvider locale={language} messages={loadMessage}>
             <LanguageContext.Provider value={{ language: language, setLanguage: setLanguage }}>
