@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/noventiq-login-assignment/static/css/main.47a6fe2e.css",
-    "main.js": "/noventiq-login-assignment/static/js/main.e17ffcc8.js",
+    "main.js": "/noventiq-login-assignment/static/js/main.6d077481.js",
     "static/js/453.821fbf8c.chunk.js": "/noventiq-login-assignment/static/js/453.821fbf8c.chunk.js",
     "static/media/noventiq-logo.svg": "/noventiq-login-assignment/static/media/noventiq-logo.887721ed78cf9baa29dc5ad24d55fb29.svg",
     "index.html": "/noventiq-login-assignment/index.html",
     "main.47a6fe2e.css.map": "/noventiq-login-assignment/static/css/main.47a6fe2e.css.map",
-    "main.e17ffcc8.js.map": "/noventiq-login-assignment/static/js/main.e17ffcc8.js.map",
+    "main.6d077481.js.map": "/noventiq-login-assignment/static/js/main.6d077481.js.map",
     "453.821fbf8c.chunk.js.map": "/noventiq-login-assignment/static/js/453.821fbf8c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.47a6fe2e.css",
-    "static/js/main.e17ffcc8.js"
+    "static/js/main.6d077481.js"
   ]
 }
